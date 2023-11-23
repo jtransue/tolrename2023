@@ -26,6 +26,10 @@ code_lines = []
 
 # Loop through names and qual_names at the same time
 for name, qual in zip(names, qual_names):
+    # Drop the questions that haven't been copied
+    if qual in drop_questions:
+        continue
+
     # Create the string for both names
     code_lines.append(f"{name} = {qual} \n")
 
