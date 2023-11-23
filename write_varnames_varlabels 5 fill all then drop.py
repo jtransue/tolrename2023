@@ -23,12 +23,11 @@ drop_questions = ["Q36_10", "Q37_10", "Q38_10", "Q39_10", "Q40_10", "Q41_10"]
 generated_strings = []
 code_lines = []
 
-for name in names:
-    for qual in qual_names:
-        # if qual in drop_questions:
-        #     continue
-        
-        code_lines.append(f"{name} = {qual} \n")
+
+# Loop through names and qual_names at the same time
+for name, qual in zip(names, qual_names):
+    # Create the string for both names
+    code_lines.append(f"{name} = {qual} \n")
 
 print(code_lines)
    
