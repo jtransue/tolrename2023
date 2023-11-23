@@ -3,6 +3,7 @@
 # group
 # shd or leg = should or legal
 # act
+import numpy as np
 
 oldnew = ["o","n"]
 should_legal = ["shd","leg"]
@@ -53,7 +54,6 @@ for on in oldnew:
     for sl in should_legal:
         for gr in group:
             for ac in act:
-                qual_index += 1
                 if qual_names[qual_index] in drop_questions:
                     continue
 
