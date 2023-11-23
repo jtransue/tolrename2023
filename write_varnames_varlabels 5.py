@@ -47,11 +47,16 @@ code_lines = []
 
 qual_index = 0
 
+drop_questions = ["Q36_10", "Q37_10", "Q38_10", "Q39_10", "Q40_10", "Q41_10"]
+
 # Nested loops to generate strings
 for on in oldnew:
     for sl in should_legal:
         for gr in group:
             for ac in act:
+                if qual_names[qual_index] in drop_questions:
+                    continue
+
                 # Create the varname string by concatenating elements
                 varname = on + sl + gr + ac
                 
