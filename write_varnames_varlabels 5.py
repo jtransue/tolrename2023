@@ -45,8 +45,6 @@ act = ["spk", "coll", "lib", "rsrch", "comedy", "facrec", "tap", "march", "cast"
 generated_strings = []
 code_lines = []
 
-qual_index = 0
-
 drop_questions = ["Q36_10", "Q37_10", "Q38_10", "Q39_10", "Q40_10", "Q41_10"]
 
 # Nested loops to generate strings
@@ -54,23 +52,23 @@ for on in oldnew:
     for sl in should_legal:
         for gr in group:
             for ac in act:
-                if qual_names[qual_index] in drop_questions:
-                    continue
+                for qual in qual_names:
+                    if qual in drop_questions:
+                        continue
 
-                # Create the varname string by concatenating elements
-                varname = on + sl + gr + ac
-                
-                # Create the full string with "clonevar" and varname
-                full_string = "clonevar " + varname
-                
-                # Append the generated string to the list
-                generated_strings.append(full_string)
-                
-                # Finish the clonevar command (may combine later)
-#                for qn in qual_names:
-                code_line = full_string + " = " + qual_names[qual_index] + "\n"
-                code_lines.append(code_line)
-                qual_index += 1
+                    # Create the varname string by concatenating elements
+                    varname = on + sl + gr + ac
+                    
+                    # Create the full string with "clonevar" and varname
+                    full_string = "clonevar " + varname
+                    
+                    # Append the generated string to the list
+                    generated_strings.append(full_string)
+                    
+                    # Finish the clonevar command (may combine later)
+                    # for qn in qual_names:
+                    code_line = full_string + " = " + qual + "\n"
+                    code_lines.append(code_line)
 print(code_lines)
                     
                     
