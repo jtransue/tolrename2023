@@ -27,7 +27,9 @@ code_lines = []
 # Loop through names and qual_names at the same time
 for name, qual in zip(names, qual_names):
     # Drop the questions that haven't been copied
-    if qual in drop_questions:
+    # if qual in drop_questions:
+    #     continue
+    if "nshd" in name and "march" in name:
         continue
 
     # Create the string for both names
